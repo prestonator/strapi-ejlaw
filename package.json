@@ -7,7 +7,9 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "build:dev": "strapi build && strapi develop",
+    "build:start": "strapi build && strapi start"
   },
   "devDependencies": {
     "pg": "^8.11.3"
