@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@prestonator4000/strapi-react-icons": "^1.2.0",
-    "@strapi/plugin-cloud": "4.15.4",
     "@strapi/plugin-graphql": "^4.15.4",
     "@strapi/plugin-i18n": "4.15.4",
     "@strapi/plugin-users-permissions": "4.15.4",
