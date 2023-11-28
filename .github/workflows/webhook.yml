@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Webhook
-        uses: distributhor/workflow-webhook-action@v3.0.7
+        uses: distributhor/workflow-webhook@v3.0.7
         with:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
