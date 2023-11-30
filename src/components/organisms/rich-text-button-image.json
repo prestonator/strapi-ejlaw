@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_organisms_rich_text_button_images",
+  "info": {
+    "displayName": "RichText Button Image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "richText": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.button"
+    }
+  }
+}
