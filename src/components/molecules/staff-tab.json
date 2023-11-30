@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_molecules_staff_tabs",
+  "info": {
+    "displayName": "Staff Tab"
+  },
+  "options": {},
+  "attributes": {
+    "tabHeading": {
+      "type": "string"
+    },
+    "tabContent": {
+      "type": "richtext"
+    }
+  }
+}
