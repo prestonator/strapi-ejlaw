@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_organisms_staff_preview_sections",
+  "info": {
+    "displayName": "Staff Preview Section"
+  },
+  "options": {},
+  "attributes": {
+    "socialIcons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.icon-with-link"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "richText": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.button"
+    }
+  }
+}

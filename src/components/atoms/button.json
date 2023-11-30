@@ -1,7 +1,8 @@
 {
   "collectionName": "components_molecules_buttons",
   "info": {
-    "displayName": "button"
+    "displayName": "button",
+    "description": ""
   },
   "options": {},
   "attributes": {

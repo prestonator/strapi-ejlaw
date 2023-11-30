@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home"
+    "displayName": "Home",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,7 +23,23 @@
     "modal": {
       "type": "component",
       "repeatable": false,
-      "component": "organisms.rich-text-button"
+      "component": "molecules.rich-text-button"
+    },
+    "staffPreviewHeading": {
+      "type": "richtext"
+    },
+    "staffPreview": {
+      "type": "component",
+      "repeatable": true,
+      "component": "organisms.staff-preview-section"
+    },
+    "whyUsHeading": {
+      "type": "richtext"
+    },
+    "whyUsCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.rich-text-icon-button"
     }
   }
 }

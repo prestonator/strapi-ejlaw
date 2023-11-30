@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_molecules_icon_with_links",
+  "info": {
+    "displayName": "Icon with Link"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    },
+    "newTab": {
+      "type": "boolean"
+    }
+  }
+}

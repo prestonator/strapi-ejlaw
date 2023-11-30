@@ -1,7 +1,8 @@
 {
   "collectionName": "components_organisms_rich_text_icons",
   "info": {
-    "displayName": "RichText Icon"
+    "displayName": "RichText Icon",
+    "description": ""
   },
   "options": {},
   "attributes": {
