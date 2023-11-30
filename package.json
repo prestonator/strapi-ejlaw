@@ -1,40 +1,42 @@
 {
   "name": "strapi-ejlaw",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "A Strapi application",
-  "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "build:dev": "strapi build && strapi develop",
-    "build:start": "strapi build && strapi start"
-  },
-  "devDependencies": {
-    "pg": "^8.11.3"
-  },
-  "dependencies": {
-    "@prestonator4000/strapi-react-icons": "^1.2.0",
-    "@strapi/plugin-graphql": "^4.15.4",
-    "@strapi/plugin-i18n": "4.15.4",
-    "@strapi/plugin-users-permissions": "4.15.4",
-    "@strapi/strapi": "4.15.4",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "strapi-tiptap-editor": "^0.9.12",
-    "styled-components": "5.3.3"
-  },
+  "license": "MIT",
   "author": {
     "name": "A Strapi developer"
   },
-  "strapi": {
-    "uuid": "36d10ebc-c3f6-4940-b1ed-d3acb7f20f85"
+  "scripts": {
+    "build": "strapi build",
+    "build:dev": "strapi build && strapi develop",
+    "build:start": "strapi build && strapi start",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@prestonator4000/strapi-react-icons": "^1.2.0",
+    "@strapi/plugin-graphql": "^4.15.5",
+    "@strapi/plugin-i18n": "^4.15.5",
+    "@strapi/plugin-users-permissions": "^4.15.5",
+    "@strapi/strapi": "^4.15.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "strapi-plugin-menus": "^1.5.0",
+    "strapi-plugin-sitemap": "^3.0.6",
+    "strapi-tiptap-editor": "^0.9.12",
+    "styled-components": "^6.1.1"
+  },
+  "devDependencies": {
+    "pg": "^8.11.3"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "36d10ebc-c3f6-4940-b1ed-d3acb7f20f85"
+  }
 }

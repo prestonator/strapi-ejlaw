@@ -12,4 +12,22 @@ module.exports = {
       },
     },
   },
+  menus: {
+    config: {
+      layouts: {
+        menuItem: {
+          // This is the menu item edit panel.
+          media: [
+            {
+              input: {
+                label: "Media",
+                name: "logo",
+                type: "media",
+              },
+            },
+          ],
+        },
+      },
+    },
+  },
 };
