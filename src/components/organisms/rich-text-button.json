@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_organisms_rich_text_buttons",
+  "info": {
+    "displayName": "RichText Button"
+  },
+  "options": {},
+  "attributes": {
+    "richText": {
+      "type": "richtext"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.button"
+    }
+  }
+}

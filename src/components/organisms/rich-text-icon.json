@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_organisms_rich_text_icons",
+  "info": {
+    "displayName": "RichText Icon"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    },
+    "richText": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_organisms_rich_text_images",
+  "info": {
+    "displayName": "RichText Image"
+  },
+  "options": {},
+  "attributes": {
+    "richText": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
