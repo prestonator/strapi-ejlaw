@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "practiceAreaHeading": {
+      "type": "string"
+    },
+    "practiceAreaCards": {
+      "displayName": "RichText Icon Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.rich-text-icon-link"
+    },
+    "whyChooseUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "ourPhilosophyHeading": {
+      "type": "string"
+    },
+    "ourPhilosophyCards": {
+      "displayName": "RichText",
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.rich-text"
+    }
+  }
+}

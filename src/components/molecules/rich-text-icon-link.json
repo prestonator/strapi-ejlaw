@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_molecules_rich_text_icon_links",
+  "info": {
+    "displayName": "RichText Icon Link"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.icon-with-link"
+    },
+    "richText": {
+      "type": "richtext"
+    }
+  }
+}
