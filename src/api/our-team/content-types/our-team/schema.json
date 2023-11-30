@@ -4,7 +4,8 @@
   "info": {
     "singularName": "our-team",
     "pluralName": "our-teams",
-    "displayName": "Our Team"
+    "displayName": "Our Team",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,6 +24,11 @@
       "relation": "oneToOne",
       "target": "api::team-member.team-member",
       "mappedBy": "our_team"
+    },
+    "tabContainer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "organisms.staff-tab-container"
     }
   }
 }

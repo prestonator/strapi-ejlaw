@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_atoms_rich_texts",
+  "info": {
+    "displayName": "RichText"
+  },
+  "options": {},
+  "attributes": {
+    "richText": {
+      "type": "richtext"
+    }
+  }
+}
