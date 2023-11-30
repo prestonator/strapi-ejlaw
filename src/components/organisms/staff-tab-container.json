@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_organisms_staff_tab_containers",
+  "info": {
+    "displayName": "Staff Tab Container"
+  },
+  "options": {},
+  "attributes": {
+    "tab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.staff-tab"
+    }
+  }
+}
