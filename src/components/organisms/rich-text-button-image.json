@@ -23,7 +23,7 @@
     "buttons": {
       "type": "component",
       "repeatable": true,
-      "component": "molecules.button"
+      "component": "atoms.button"
     }
   }
 }

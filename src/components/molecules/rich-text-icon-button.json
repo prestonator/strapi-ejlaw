@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_molecules_rich_text_icon_buttons",
+  "info": {
+    "displayName": "RichText Icon Button"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    },
+    "richText": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.button"
+    }
+  }
+}
