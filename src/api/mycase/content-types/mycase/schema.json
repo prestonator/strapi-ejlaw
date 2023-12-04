@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "mycases",
+  "info": {
+    "singularName": "mycase",
+    "pluralName": "mycases",
+    "displayName": "MyCase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "organisms.rich-text-button-image"
+    },
+    "sections": {
+      "type": "richtext"
+    }
+  }
+}

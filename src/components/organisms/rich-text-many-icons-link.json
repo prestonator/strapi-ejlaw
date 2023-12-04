@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_organisms_rich_text_many_icons_links",
+  "info": {
+    "displayName": "RichText Many Icons Link"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.icon-with-link"
+    },
+    "richText": {
+      "type": "richtext"
+    }
+  }
+}
