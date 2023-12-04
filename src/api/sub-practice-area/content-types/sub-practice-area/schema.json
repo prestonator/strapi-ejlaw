@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_practice_areas",
+  "info": {
+    "singularName": "sub-practice-area",
+    "pluralName": "sub-practice-areas",
+    "displayName": "Sub Practice Area",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "sections": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "main_practice_areas",
+  "info": {
+    "singularName": "main-practice-area",
+    "pluralName": "main-practice-areas",
+    "displayName": "Main Practice Area",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sub_practice_areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-practice-area.sub-practice-area"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "sections": {
+      "type": "richtext"
+    }
+  }
+}
