@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sub-practice-area",
     "pluralName": "sub-practice-areas",
-    "displayName": "Sub Practice Area"
+    "displayName": "Sub Practice Area",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,18 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-image"
+    },
+    "sections": {
+      "type": "richtext"
     }
   }
 }
