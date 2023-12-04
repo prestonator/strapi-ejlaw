@@ -51,6 +51,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "news_blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-blog-post.news-blog-post",
+      "mappedBy": "team_member"
     }
   }
 }
