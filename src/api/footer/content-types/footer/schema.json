@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "modal": {
+      "type": "richtext"
+    },
+    "column": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.rich-text"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.icon-with-link"
+    }
+  }
+}
