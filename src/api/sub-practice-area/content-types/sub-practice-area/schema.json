@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_practice_areas",
+  "info": {
+    "singularName": "sub-practice-area",
+    "pluralName": "sub-practice-areas",
+    "displayName": "Sub Practice Area"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
