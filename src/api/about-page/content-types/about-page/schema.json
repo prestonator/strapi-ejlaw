@@ -51,6 +51,11 @@
       "type": "component",
       "repeatable": true,
       "component": "atoms.rich-text"
+    },
+    "contactSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-button"
     }
   }
 }
