@@ -4,11 +4,12 @@ module.exports = {
     config: {
       endpoint: "/graphql",
       shadowCRUD: true,
-      playgroundAlways: false,
-      depthLimit: 7,
+      playgroundAlways: true,
+      depthLimit: 15,
       amountLimit: 100,
       apolloServer: {
         tracing: false,
+        introspection: true,
       },
     },
   },
