@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_molecules_expand_cards",
+  "info": {
+    "displayName": "Expand Card"
+  },
+  "options": {},
+  "attributes": {
+    "cardTitle": {
+      "type": "richtext"
+    },
+    "cardBody": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "cardButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.button"
+    }
+  }
+}
