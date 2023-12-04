@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_blog_posts",
+  "info": {
+    "singularName": "news-blog-post",
+    "pluralName": "news-blog-posts",
+    "displayName": "News Blog Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "news_blog_page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::news-blog-page.news-blog-page",
+      "inversedBy": "news_blog_posts"
+    },
+    "team_member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team-member.team-member",
+      "inversedBy": "news_blog_posts"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "news_blog_posts"
+    },
+    "excerpt": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "sections": {
+      "type": "richtext"
+    }
+  }
+}
