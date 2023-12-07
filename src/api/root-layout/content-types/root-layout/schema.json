@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "root_layouts",
+  "info": {
+    "singularName": "root-layout",
+    "pluralName": "root-layouts",
+    "displayName": "Root Layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navMenu": {
+      "type": "json"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
