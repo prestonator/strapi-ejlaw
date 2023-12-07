@@ -31,11 +31,6 @@
     },
     "sections": {
       "type": "richtext"
-    },
-    "expandCards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "molecules.expand-card"
     }
   }
 }
