@@ -40,6 +40,9 @@
       "type": "component",
       "repeatable": true,
       "component": "molecules.rich-text-icon-button"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
