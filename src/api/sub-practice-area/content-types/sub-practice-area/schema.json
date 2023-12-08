@@ -31,6 +31,12 @@
       "type": "component",
       "repeatable": false,
       "component": "molecules.expand-card"
+    },
+    "main_practice_area": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::main-practice-area.main-practice-area",
+      "inversedBy": "sub_practice_areas"
     }
   }
 }

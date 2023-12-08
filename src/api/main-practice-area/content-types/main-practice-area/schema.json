@@ -18,7 +18,8 @@
     "sub_practice_areas": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::sub-practice-area.sub-practice-area"
+      "target": "api::sub-practice-area.sub-practice-area",
+      "mappedBy": "main_practice_area"
     },
     "slug": {
       "type": "uid",
