@@ -50,6 +50,9 @@
         "summary_large_image",
         "app"
       ]
+    },
+    "jsonLD": {
+      "type": "json"
     }
   }
 }
