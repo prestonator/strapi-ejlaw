@@ -33,6 +33,11 @@
       "type": "component",
       "repeatable": false,
       "component": "organisms.rich-text-many-icons-link"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.shared-meta"
     }
   }
 }

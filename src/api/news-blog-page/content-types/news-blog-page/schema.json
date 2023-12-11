@@ -29,6 +29,11 @@
       "type": "component",
       "repeatable": false,
       "component": "molecules.rich-text-image"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.shared-meta"
     }
   }
 }

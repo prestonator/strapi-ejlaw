@@ -29,6 +29,11 @@
       "type": "component",
       "repeatable": false,
       "component": "organisms.staff-tab-container"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.shared-meta"
     }
   }
 }
