@@ -37,6 +37,11 @@
       "relation": "manyToOne",
       "target": "api::main-practice-area.main-practice-area",
       "inversedBy": "sub_practice_areas"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.shared-meta"
     }
   }
 }

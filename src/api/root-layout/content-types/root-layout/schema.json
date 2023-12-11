@@ -4,7 +4,8 @@
   "info": {
     "singularName": "root-layout",
     "pluralName": "root-layouts",
-    "displayName": "Root Layout"
+    "displayName": "Root Layout",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,14 +16,24 @@
       "type": "json"
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "metadataBase": {
+      "type": "string"
     }
   }
 }
