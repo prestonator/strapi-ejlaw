@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_organisms_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "modalText": {
+      "type": "richtext"
+    },
+    "column": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.rich-text"
+    },
+    "socialIcons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.icon-with-link"
+    }
+  }
+}
