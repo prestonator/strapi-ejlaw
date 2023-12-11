@@ -29,17 +29,14 @@
     "metaTitle": {
       "type": "string"
     },
-    "metaDescription": {
-      "type": "text"
-    },
-    "metadataBase": {
-      "type": "string"
-    },
     "footer": {
       "displayName": "Footer",
       "type": "component",
       "repeatable": false,
       "component": "organisms.footer"
+    },
+    "jsonLD": {
+      "type": "json"
     }
   }
 }
