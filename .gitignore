@@ -119,5 +119,6 @@ build
 ############################
 docker-compose.yml
 Dockerfile
+Dockerfile.prod
 .dockerignore
 data/
