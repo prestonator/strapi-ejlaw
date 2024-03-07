@@ -26,9 +26,7 @@
     "react-router-dom": "^5.3.4",
     "strapi-plugin-sitemap": "^3.0.8",
     "strapi-tiptap-editor": "^0.9.13",
-    "styled-components": "^6.1.8"
-  },
-  "devDependencies": {
+    "styled-components": "^6.1.8",
     "pg": "^8.11.3"
   },
   "engines": {
