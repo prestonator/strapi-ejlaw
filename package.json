@@ -11,22 +11,23 @@
     "build": "strapi build",
     "build:dev": "strapi build && strapi develop",
     "build:start": "strapi build && strapi start",
+    "build:install": "yarn && strapi build",
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
     "@prestonator4000/strapi-react-icons": "^1.2.0",
-    "@strapi/plugin-graphql": "^4.15.5",
-    "@strapi/plugin-i18n": "^4.15.5",
-    "@strapi/plugin-users-permissions": "^4.15.5",
-    "@strapi/strapi": "^4.15.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.1",
+    "@strapi/plugin-graphql": "4.20.4",
+    "@strapi/plugin-i18n": "4.20.4",
+    "@strapi/strapi": "4.20.4",
+    "@strapi/plugin-users-permissions": "4.20.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^5.3.4",
     "strapi-plugin-sitemap": "^3.0.6",
     "strapi-tiptap-editor": "^0.9.12",
-    "styled-components": "^6.1.1"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "pg": "^8.11.3"
