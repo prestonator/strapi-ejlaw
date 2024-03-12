@@ -1,7 +1,8 @@
 {
   "collectionName": "components_organisms_staff_preview_sections",
   "info": {
-    "displayName": "Staff Preview Section"
+    "displayName": "Staff Preview Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,14 +12,15 @@
       "component": "molecules.icon-with-link"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "richText": {
       "type": "richtext"
@@ -27,6 +29,9 @@
       "type": "component",
       "repeatable": false,
       "component": "atoms.button"
+    },
+    "staffOrder": {
+      "type": "integer"
     }
   }
 }
