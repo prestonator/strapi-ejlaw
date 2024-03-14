@@ -122,3 +122,4 @@ Dockerfile
 Dockerfile.prod
 .dockerignore
 data/
+yarn.lock
