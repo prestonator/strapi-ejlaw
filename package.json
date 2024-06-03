@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@prestonator4000/strapi-react-icons": "^1.2.0",
-    "@strapi/plugin-graphql": "^4.24.2",
-    "@strapi/plugin-i18n": "^4.24.2",
-    "@strapi/plugin-users-permissions": "^4.24.2",
-    "@strapi/strapi": "^4.24.2",
+    "@strapi/plugin-graphql": "^4.24.4",
+    "@strapi/plugin-i18n": "^4.24.4",
+    "@strapi/plugin-users-permissions": "^4.24.4",
+    "@strapi/strapi": "^4.24.4",
     "pg": "^8.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -36,5 +36,6 @@
   },
   "strapi": {
     "uuid": "36d10ebc-c3f6-4940-b1ed-d3acb7f20f85"
-  }
+  },
+  "packageManager": "yarn@4.2.2"
 }
