@@ -48,6 +48,22 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.shared-meta"
+    },
+    "cklighthtml": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "cklitemarkdown": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
