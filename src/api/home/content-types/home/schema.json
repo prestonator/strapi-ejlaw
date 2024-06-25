@@ -48,38 +48,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.shared-meta"
-    },
-    "cklighthtml": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "light"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "cklitemarkdown": {
-      "type": "customField",
-      "options": {
-        "output": "Markdown",
-        "preset": "light"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "ckeditrichhtml": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "ckeditrichmd": {
-      "type": "customField",
-      "options": {
-        "output": "Markdown",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
