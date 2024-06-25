@@ -64,6 +64,22 @@
         "preset": "light"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "ckeditrichhtml": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "ckeditrichmd": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
