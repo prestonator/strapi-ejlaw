@@ -403,9 +403,12 @@ export interface PluginUploadFile extends Schema.CollectionType {
     folderPath: Attribute.String &
       Attribute.Required &
       Attribute.Private &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -420,6 +423,9 @@ export interface PluginUploadFile extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -441,9 +447,12 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     pathId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     parent: Attribute.Relation<
       'plugin::upload.folder',
@@ -462,9 +471,12 @@ export interface PluginUploadFolder extends Schema.CollectionType {
     >;
     path: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -479,6 +491,160 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface PluginContentReleasesRelease extends Schema.CollectionType {
+  collectionName: 'strapi_releases';
+  info: {
+    singularName: 'release';
+    pluralName: 'releases';
+    displayName: 'Release';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    releasedAt: Attribute.DateTime;
+    scheduledAt: Attribute.DateTime;
+    timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
+    actions: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToMany',
+      'plugin::content-releases.release-action'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface PluginContentReleasesReleaseAction
+  extends Schema.CollectionType {
+  collectionName: 'strapi_release_actions';
+  info: {
+    singularName: 'release-action';
+    pluralName: 'release-actions';
+    displayName: 'Release Action';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    type: Attribute.Enumeration<['publish', 'unpublish']> & Attribute.Required;
+    entry: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'morphToOne'
+    >;
+    contentType: Attribute.String & Attribute.Required;
+    locale: Attribute.String;
+    release: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'manyToOne',
+      'plugin::content-releases.release'
+    >;
+    isEntryValid: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface PluginStrapiReactIconsIconlibrary
+  extends Schema.CollectionType {
+  collectionName: 'iconlibrary';
+  info: {
+    singularName: 'iconlibrary';
+    pluralName: 'iconlibraries';
+    displayName: 'IconLibrary';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    abbreviation: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    isEnabled: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::strapi-react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::strapi-react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -504,10 +670,13 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
     code: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -674,6 +843,683 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface PluginSitemapSitemap extends Schema.CollectionType {
+  collectionName: 'sitemap';
+  info: {
+    singularName: 'sitemap';
+    pluralName: 'sitemaps';
+    displayName: 'sitemap';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    sitemap_string: Attribute.Text & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'default'>;
+    type: Attribute.Enumeration<['default_hreflang', 'index']> &
+      Attribute.DefaultTo<'default_hreflang'>;
+    delta: Attribute.Integer & Attribute.DefaultTo<1>;
+    link_count: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::sitemap.sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::sitemap.sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginSitemapSitemapCache extends Schema.CollectionType {
+  collectionName: 'sitemap_cache';
+  info: {
+    singularName: 'sitemap-cache';
+    pluralName: 'sitemap-caches';
+    displayName: 'sitemap-cache';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    sitemap_json: Attribute.JSON & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'default'>;
+    sitemap_id: Attribute.Integer & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::sitemap.sitemap-cache',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::sitemap.sitemap-cache',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAboutPageAboutPage extends Schema.SingleType {
+  collectionName: 'about_pages';
+  info: {
+    singularName: 'about-page';
+    pluralName: 'about-pages';
+    displayName: 'About Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::about-page.about-page', 'title'>;
+    hero: Attribute.Component<'molecules.rich-text-image'>;
+    cta: Attribute.Component<'molecules.rich-text-image'>;
+    practiceAreaHeading: Attribute.String;
+    practiceAreaCards: Attribute.Component<
+      'molecules.rich-text-icon-link',
+      true
+    >;
+    whyChooseUs: Attribute.Component<'molecules.rich-text-image'>;
+    ourPhilosophyHeading: Attribute.String;
+    ourPhilosophyCards: Attribute.Component<'atoms.rich-text', true>;
+    contactSection: Attribute.Component<'molecules.rich-text-button'>;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::category.category', 'title'>;
+    news_blog_posts: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::news-blog-post.news-blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiContactContact extends Schema.SingleType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::contact.contact', 'title'>;
+    details: Attribute.Component<'molecules.rich-text-icon', true>;
+    cta: Attribute.Component<'molecules.rich-text-icon-button'>;
+    socials: Attribute.Component<'organisms.rich-text-many-icons-link'>;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    modal: Attribute.RichText;
+    column: Attribute.Component<'atoms.rich-text', true>;
+    socials: Attribute.Component<'molecules.icon-with-link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    hero: Attribute.Component<'organisms.rich-text-button-image'>;
+    modal: Attribute.Component<'molecules.rich-text-button'>;
+    staffPreviewHeading: Attribute.RichText;
+    staffPreview: Attribute.Component<'organisms.staff-preview-section', true>;
+    whyUsHeading: Attribute.RichText;
+    whyUsCards: Attribute.Component<'molecules.rich-text-icon-button', true>;
+    slug: Attribute.UID;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiLandingPageLandingPage extends Schema.CollectionType {
+  collectionName: 'landing_pages';
+  info: {
+    singularName: 'landing-page';
+    pluralName: 'landing-pages';
+    displayName: 'Landing Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::landing-page.landing-page', 'title'>;
+    hero: Attribute.Component<'organisms.rich-text-button-image'>;
+    section_one_header: Attribute.String;
+    section_one_cards: Attribute.Component<'molecules.rich-text-icon', true>;
+    section_one_content: Attribute.Component<'molecules.rich-text-button'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::landing-page.landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::landing-page.landing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiMainPracticeAreaMainPracticeArea
+  extends Schema.CollectionType {
+  collectionName: 'main_practice_areas';
+  info: {
+    singularName: 'main-practice-area';
+    pluralName: 'main-practice-areas';
+    displayName: 'Main Practice Area';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    sub_practice_areas: Attribute.Relation<
+      'api::main-practice-area.main-practice-area',
+      'oneToMany',
+      'api::sub-practice-area.sub-practice-area'
+    >;
+    slug: Attribute.UID<'api::main-practice-area.main-practice-area', 'title'>;
+    hero: Attribute.Component<'molecules.rich-text-image'>;
+    sections: Attribute.RichText;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-practice-area.main-practice-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-practice-area.main-practice-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiMycaseMycase extends Schema.SingleType {
+  collectionName: 'mycases';
+  info: {
+    singularName: 'mycase';
+    pluralName: 'mycases';
+    displayName: 'MyCase';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::mycase.mycase', 'title'>;
+    hero: Attribute.Component<'organisms.rich-text-button-image'>;
+    sections: Attribute.RichText;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mycase.mycase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mycase.mycase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiNewsBlogPageNewsBlogPage extends Schema.CollectionType {
+  collectionName: 'news_blog_pages';
+  info: {
+    singularName: 'news-blog-page';
+    pluralName: 'news-blog-pages';
+    displayName: 'News Blog Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::news-blog-page.news-blog-page', 'title'>;
+    news_blog_posts: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
+      'oneToMany',
+      'api::news-blog-post.news-blog-post'
+    >;
+    hero: Attribute.Component<'molecules.rich-text-image'>;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiNewsBlogPostNewsBlogPost extends Schema.CollectionType {
+  collectionName: 'news_blog_posts';
+  info: {
+    singularName: 'news-blog-post';
+    pluralName: 'news-blog-posts';
+    displayName: 'News Blog Post';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::news-blog-post.news-blog-post', 'title'>;
+    news_blog_page: Attribute.Relation<
+      'api::news-blog-post.news-blog-post',
+      'manyToOne',
+      'api::news-blog-page.news-blog-page'
+    >;
+    team_member: Attribute.Relation<
+      'api::news-blog-post.news-blog-post',
+      'manyToOne',
+      'api::team-member.team-member'
+    >;
+    category: Attribute.Relation<
+      'api::news-blog-post.news-blog-post',
+      'manyToOne',
+      'api::category.category'
+    >;
+    excerpt: Attribute.RichText;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    date: Attribute.Date;
+    sections: Attribute.RichText;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-blog-post.news-blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-blog-post.news-blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiOurTeamOurTeam extends Schema.CollectionType {
+  collectionName: 'our_teams';
+  info: {
+    singularName: 'our-team';
+    pluralName: 'our-teams';
+    displayName: 'Our Team';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::our-team.our-team', 'title'>;
+    team_member: Attribute.Relation<
+      'api::our-team.our-team',
+      'oneToOne',
+      'api::team-member.team-member'
+    >;
+    tabContainer: Attribute.Component<'organisms.staff-tab-container'>;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-team.our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-team.our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiRootLayoutRootLayout extends Schema.SingleType {
+  collectionName: 'root_layouts';
+  info: {
+    singularName: 'root-layout';
+    pluralName: 'root-layouts';
+    displayName: 'Root Layout';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    navMenu: Attribute.JSON;
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Attribute.String;
+    footer: Attribute.Component<'organisms.footer'>;
+    jsonLD: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::root-layout.root-layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::root-layout.root-layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiSubPracticeAreaSubPracticeArea
+  extends Schema.CollectionType {
+  collectionName: 'sub_practice_areas';
+  info: {
+    singularName: 'sub-practice-area';
+    pluralName: 'sub-practice-areas';
+    displayName: 'Sub Practice Area';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::sub-practice-area.sub-practice-area', 'title'>;
+    hero: Attribute.Component<'molecules.rich-text-image'>;
+    sections: Attribute.RichText;
+    cardContent: Attribute.Component<'molecules.expand-card'>;
+    main_practice_area: Attribute.Relation<
+      'api::sub-practice-area.sub-practice-area',
+      'manyToOne',
+      'api::main-practice-area.main-practice-area'
+    >;
+    meta: Attribute.Component<'seo.shared-meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-practice-area.sub-practice-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-practice-area.sub-practice-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
+  collectionName: 'team_members';
+  info: {
+    singularName: 'team-member';
+    pluralName: 'team-members';
+    displayName: 'Team Member';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::team-member.team-member', 'title'>;
+    our_team: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'api::our-team.our-team'
+    >;
+    positions: Attribute.Component<'atoms.basic-text', true>;
+    longBio: Attribute.RichText;
+    shortBio: Attribute.RichText;
+    email: Attribute.Email;
+    phone: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    news_blog_posts: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToMany',
+      'api::news-blog-post.news-blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -689,10 +1535,29 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::content-releases.release': PluginContentReleasesRelease;
+      'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::strapi-react-icons.iconlibrary': PluginStrapiReactIconsIconlibrary;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::sitemap.sitemap': PluginSitemapSitemap;
+      'plugin::sitemap.sitemap-cache': PluginSitemapSitemapCache;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::category.category': ApiCategoryCategory;
+      'api::contact.contact': ApiContactContact;
+      'api::footer.footer': ApiFooterFooter;
+      'api::home.home': ApiHomeHome;
+      'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::main-practice-area.main-practice-area': ApiMainPracticeAreaMainPracticeArea;
+      'api::mycase.mycase': ApiMycaseMycase;
+      'api::news-blog-page.news-blog-page': ApiNewsBlogPageNewsBlogPage;
+      'api::news-blog-post.news-blog-post': ApiNewsBlogPostNewsBlogPost;
+      'api::our-team.our-team': ApiOurTeamOurTeam;
+      'api::root-layout.root-layout': ApiRootLayoutRootLayout;
+      'api::sub-practice-area.sub-practice-area': ApiSubPracticeAreaSubPracticeArea;
+      'api::team-member.team-member': ApiTeamMemberTeamMember;
     }
   }
 }

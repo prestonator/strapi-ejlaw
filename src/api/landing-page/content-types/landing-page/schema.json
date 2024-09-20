@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "organisms.rich-text-button-image"
+    },
+    "section_one_header": {
+      "type": "string"
+    },
+    "section_one_cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.rich-text-icon"
+    },
+    "section_one_content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "molecules.rich-text-button"
+    }
+  }
+}
