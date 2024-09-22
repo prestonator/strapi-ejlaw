@@ -1,4 +1,3 @@
-.gitignore
 ############################
 # OS X
 ############################
@@ -95,6 +94,8 @@ logs
 results
 node_modules
 .node_history
+.yarn
+.yarnrc.yml
 
 ############################
 # Tests
@@ -114,6 +115,7 @@ dist
 build
 .strapi-updater.json
 .strapi/client/app.js
+.strapi/client/index.html
 
 ############################
 # Docker
