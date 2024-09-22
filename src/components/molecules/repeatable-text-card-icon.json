@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_molecules_repeatable_text_card_icons",
+  "info": {
+    "displayName": "Repeatable Text Card Icon"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    },
+    "header": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}

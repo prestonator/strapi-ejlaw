@@ -156,6 +156,19 @@ export interface MoleculesRichTextButton extends Schema.Component {
   };
 }
 
+export interface MoleculesRepeatableTextCardIcon extends Schema.Component {
+  collectionName: 'components_molecules_repeatable_text_card_icons';
+  info: {
+    displayName: 'Repeatable Text Card Icon';
+  };
+  attributes: {
+    icon: Attribute.String &
+      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
+    header: Attribute.String;
+    content: Attribute.String;
+  };
+}
+
 export interface MoleculesLandingPageHero extends Schema.Component {
   collectionName: 'components_molecules_landing_page_heroes';
   info: {
@@ -246,6 +259,7 @@ declare module '@strapi/types' {
       'molecules.rich-text-icon-link': MoleculesRichTextIconLink;
       'molecules.rich-text-icon-button': MoleculesRichTextIconButton;
       'molecules.rich-text-button': MoleculesRichTextButton;
+      'molecules.repeatable-text-card-icon': MoleculesRepeatableTextCardIcon;
       'molecules.landing-page-hero': MoleculesLandingPageHero;
       'molecules.icon-with-link': MoleculesIconWithLink;
       'molecules.expand-card': MoleculesExpandCard;

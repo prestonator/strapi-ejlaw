@@ -28,6 +28,12 @@
     "section_one_header": {
       "type": "string"
     },
+    "section_one_card": {
+      "displayName": "Repeatable Text Card Icon",
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.repeatable-text-card-icon"
+    },
     "section_one_cards": {
       "type": "component",
       "repeatable": true,
