@@ -22,6 +22,68 @@ export interface SeoSharedMeta extends Schema.Component {
   };
 }
 
+export interface OrganismsStaffTabContainer extends Schema.Component {
+  collectionName: 'components_organisms_staff_tab_containers';
+  info: {
+    displayName: 'Staff Tab Container';
+  };
+  attributes: {
+    tab: Attribute.Component<'molecules.staff-tab', true>;
+  };
+}
+
+export interface OrganismsStaffPreviewSection extends Schema.Component {
+  collectionName: 'components_organisms_staff_preview_sections';
+  info: {
+    displayName: 'Staff Preview Section';
+    description: '';
+  };
+  attributes: {
+    socialIcons: Attribute.Component<'molecules.icon-with-link', true>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    richText: Attribute.RichText;
+    button: Attribute.Component<'atoms.button'>;
+    staffOrder: Attribute.Integer;
+  };
+}
+
+export interface OrganismsRichTextManyIconsLink extends Schema.Component {
+  collectionName: 'components_organisms_rich_text_many_icons_links';
+  info: {
+    displayName: 'RichText Many Icons Link';
+  };
+  attributes: {
+    icon: Attribute.Component<'molecules.icon-with-link', true>;
+    richText: Attribute.RichText;
+  };
+}
+
+export interface OrganismsRichTextButtonImage extends Schema.Component {
+  collectionName: 'components_organisms_rich_text_button_images';
+  info: {
+    displayName: 'RichText Button Image';
+    description: '';
+  };
+  attributes: {
+    richText: Attribute.RichText;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    buttons: Attribute.Component<'atoms.button', true>;
+  };
+}
+
+export interface OrganismsFooter extends Schema.Component {
+  collectionName: 'components_organisms_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    modalText: Attribute.RichText;
+    column: Attribute.Component<'atoms.rich-text', true>;
+    socialIcons: Attribute.Component<'molecules.icon-with-link', true>;
+  };
+}
+
 export interface MoleculesStaffTab extends Schema.Component {
   collectionName: 'components_molecules_staff_tabs';
   info: {
@@ -134,68 +196,6 @@ export interface MoleculesExpandCard extends Schema.Component {
   };
 }
 
-export interface OrganismsStaffTabContainer extends Schema.Component {
-  collectionName: 'components_organisms_staff_tab_containers';
-  info: {
-    displayName: 'Staff Tab Container';
-  };
-  attributes: {
-    tab: Attribute.Component<'molecules.staff-tab', true>;
-  };
-}
-
-export interface OrganismsStaffPreviewSection extends Schema.Component {
-  collectionName: 'components_organisms_staff_preview_sections';
-  info: {
-    displayName: 'Staff Preview Section';
-    description: '';
-  };
-  attributes: {
-    socialIcons: Attribute.Component<'molecules.icon-with-link', true>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    richText: Attribute.RichText;
-    button: Attribute.Component<'atoms.button'>;
-    staffOrder: Attribute.Integer;
-  };
-}
-
-export interface OrganismsRichTextManyIconsLink extends Schema.Component {
-  collectionName: 'components_organisms_rich_text_many_icons_links';
-  info: {
-    displayName: 'RichText Many Icons Link';
-  };
-  attributes: {
-    icon: Attribute.Component<'molecules.icon-with-link', true>;
-    richText: Attribute.RichText;
-  };
-}
-
-export interface OrganismsRichTextButtonImage extends Schema.Component {
-  collectionName: 'components_organisms_rich_text_button_images';
-  info: {
-    displayName: 'RichText Button Image';
-    description: '';
-  };
-  attributes: {
-    richText: Attribute.RichText;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    buttons: Attribute.Component<'atoms.button', true>;
-  };
-}
-
-export interface OrganismsFooter extends Schema.Component {
-  collectionName: 'components_organisms_footers';
-  info: {
-    displayName: 'Footer';
-  };
-  attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    modalText: Attribute.RichText;
-    column: Attribute.Component<'atoms.rich-text', true>;
-    socialIcons: Attribute.Component<'molecules.icon-with-link', true>;
-  };
-}
-
 export interface AtomsRichText extends Schema.Component {
   collectionName: 'components_atoms_rich_texts';
   info: {
@@ -216,6 +216,8 @@ export interface AtomsButton extends Schema.Component {
     label: Attribute.String;
     href: Attribute.String;
     newTab: Attribute.Boolean;
+    icon: Attribute.String &
+      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
   };
 }
 
@@ -233,6 +235,11 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'seo.shared-meta': SeoSharedMeta;
+      'organisms.staff-tab-container': OrganismsStaffTabContainer;
+      'organisms.staff-preview-section': OrganismsStaffPreviewSection;
+      'organisms.rich-text-many-icons-link': OrganismsRichTextManyIconsLink;
+      'organisms.rich-text-button-image': OrganismsRichTextButtonImage;
+      'organisms.footer': OrganismsFooter;
       'molecules.staff-tab': MoleculesStaffTab;
       'molecules.rich-text-image': MoleculesRichTextImage;
       'molecules.rich-text-icon': MoleculesRichTextIcon;
@@ -242,11 +249,6 @@ declare module '@strapi/types' {
       'molecules.landing-page-hero': MoleculesLandingPageHero;
       'molecules.icon-with-link': MoleculesIconWithLink;
       'molecules.expand-card': MoleculesExpandCard;
-      'organisms.staff-tab-container': OrganismsStaffTabContainer;
-      'organisms.staff-preview-section': OrganismsStaffPreviewSection;
-      'organisms.rich-text-many-icons-link': OrganismsRichTextManyIconsLink;
-      'organisms.rich-text-button-image': OrganismsRichTextButtonImage;
-      'organisms.footer': OrganismsFooter;
       'atoms.rich-text': AtomsRichText;
       'atoms.button': AtomsButton;
       'atoms.basic-text': AtomsBasicText;
