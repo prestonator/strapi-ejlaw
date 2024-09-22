@@ -34,15 +34,13 @@
       "repeatable": true,
       "component": "molecules.repeatable-text-card-icon"
     },
-    "section_one_cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "molecules.rich-text-icon"
-    },
     "section_one_content": {
       "type": "component",
-      "repeatable": false,
-      "component": "molecules.rich-text-button"
+      "repeatable": true,
+      "component": "atoms.basic-text"
+    },
+    "section_one_button": {
+      "type": "string"
     }
   }
 }

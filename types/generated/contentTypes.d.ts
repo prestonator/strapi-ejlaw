@@ -1149,8 +1149,8 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
       'molecules.repeatable-text-card-icon',
       true
     >;
-    section_one_cards: Attribute.Component<'molecules.rich-text-icon', true>;
-    section_one_content: Attribute.Component<'molecules.rich-text-button'>;
+    section_one_content: Attribute.Component<'atoms.basic-text', true>;
+    section_one_button: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
