@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_molecules_landing_page_heroes",
+  "info": {
+    "displayName": "Landing Page Hero"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "subheader": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "heroButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.button"
+    }
+  }
+}

@@ -1143,11 +1143,10 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::landing-page.landing-page', 'title'>;
-    hero: Attribute.Component<'organisms.rich-text-button-image'>;
+    landing_page_hero: Attribute.Component<'molecules.landing-page-hero'>;
     section_one_header: Attribute.String;
     section_one_cards: Attribute.Component<'molecules.rich-text-icon', true>;
     section_one_content: Attribute.Component<'molecules.rich-text-button'>;
-    richText_blocks: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
