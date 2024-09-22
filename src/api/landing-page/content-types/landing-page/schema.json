@@ -36,6 +36,36 @@
       "type": "component",
       "repeatable": false,
       "component": "molecules.rich-text-button"
+    },
+    "richText_blocks": {
+      "type": "blocks"
+    },
+    "richText_markdown": {
+      "type": "richtext"
+    },
+    "ckhtmlrich": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "ckhtmllight": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "ckmdrich": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

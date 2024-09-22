@@ -1147,6 +1147,32 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
     section_one_header: Attribute.String;
     section_one_cards: Attribute.Component<'molecules.rich-text-icon', true>;
     section_one_content: Attribute.Component<'molecules.rich-text-button'>;
+    richText_blocks: Attribute.Blocks;
+    richText_markdown: Attribute.RichText;
+    ckhtmlrich: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    ckhtmllight: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
+    ckmdrich: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
