@@ -16,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "atoms.basic-icon-with-text"
+    },
+    "services_card_description": {
+      "type": "text"
     }
   }
 }
