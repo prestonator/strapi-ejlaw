@@ -180,6 +180,7 @@ export interface MoleculesMultiTextIconCard extends Schema.Component {
       'atoms.basic-icon-with-text',
       true
     >;
+    services_card_header: Attribute.Component<'atoms.basic-icon-with-text'>;
   };
 }
 

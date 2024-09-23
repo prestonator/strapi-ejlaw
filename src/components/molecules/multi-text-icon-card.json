@@ -11,6 +11,11 @@
       "type": "component",
       "repeatable": true,
       "component": "atoms.basic-icon-with-text"
+    },
+    "services_card_header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atoms.basic-icon-with-text"
     }
   }
 }
