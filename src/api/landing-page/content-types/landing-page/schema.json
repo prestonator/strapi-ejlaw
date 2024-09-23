@@ -67,6 +67,15 @@
       "type": "component",
       "repeatable": true,
       "component": "molecules.testimonial-card"
+    },
+    "section_five_header": {
+      "type": "string"
+    },
+    "staff_cards": {
+      "displayName": "Image with Repeatable Text and Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.image-with-repeatable-text-and-link"
     }
   }
 }

@@ -22,53 +22,6 @@ export interface SeoSharedMeta extends Schema.Component {
   };
 }
 
-export interface AtomsRichText extends Schema.Component {
-  collectionName: 'components_atoms_rich_texts';
-  info: {
-    displayName: 'RichText';
-  };
-  attributes: {
-    richText: Attribute.RichText;
-  };
-}
-
-export interface AtomsButton extends Schema.Component {
-  collectionName: 'components_molecules_buttons';
-  info: {
-    displayName: 'button';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    href: Attribute.String;
-    newTab: Attribute.Boolean;
-    icon: Attribute.String &
-      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
-  };
-}
-
-export interface AtomsBasicText extends Schema.Component {
-  collectionName: 'components_atoms_basic_texts';
-  info: {
-    displayName: 'Basic Text';
-  };
-  attributes: {
-    text: Attribute.String;
-  };
-}
-
-export interface AtomsBasicIconWithText extends Schema.Component {
-  collectionName: 'components_atoms_basic_icon_with_texts';
-  info: {
-    displayName: 'Basic Icon with Text';
-  };
-  attributes: {
-    icon: Attribute.String &
-      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
-    content: Attribute.String;
-  };
-}
-
 export interface OrganismsStaffTabContainer extends Schema.Component {
   collectionName: 'components_organisms_staff_tab_containers';
   info: {
@@ -259,6 +212,21 @@ export interface MoleculesLandingPageHero extends Schema.Component {
   };
 }
 
+export interface MoleculesImageWithRepeatableTextAndLink
+  extends Schema.Component {
+  collectionName: 'components_molecules_image_with_repeatable_text_and_links';
+  info: {
+    displayName: 'Image with Repeatable Text and Link';
+    description: '';
+  };
+  attributes: {
+    avatar: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.String;
+    title: Attribute.String;
+    href: Attribute.String;
+  };
+}
+
 export interface MoleculesIconWithLink extends Schema.Component {
   collectionName: 'components_molecules_icon_with_links';
   info: {
@@ -285,14 +253,57 @@ export interface MoleculesExpandCard extends Schema.Component {
   };
 }
 
+export interface AtomsRichText extends Schema.Component {
+  collectionName: 'components_atoms_rich_texts';
+  info: {
+    displayName: 'RichText';
+  };
+  attributes: {
+    richText: Attribute.RichText;
+  };
+}
+
+export interface AtomsButton extends Schema.Component {
+  collectionName: 'components_molecules_buttons';
+  info: {
+    displayName: 'button';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    href: Attribute.String;
+    newTab: Attribute.Boolean;
+    icon: Attribute.String &
+      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
+  };
+}
+
+export interface AtomsBasicText extends Schema.Component {
+  collectionName: 'components_atoms_basic_texts';
+  info: {
+    displayName: 'Basic Text';
+  };
+  attributes: {
+    text: Attribute.String;
+  };
+}
+
+export interface AtomsBasicIconWithText extends Schema.Component {
+  collectionName: 'components_atoms_basic_icon_with_texts';
+  info: {
+    displayName: 'Basic Icon with Text';
+  };
+  attributes: {
+    icon: Attribute.String &
+      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
+    content: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'seo.shared-meta': SeoSharedMeta;
-      'atoms.rich-text': AtomsRichText;
-      'atoms.button': AtomsButton;
-      'atoms.basic-text': AtomsBasicText;
-      'atoms.basic-icon-with-text': AtomsBasicIconWithText;
       'organisms.staff-tab-container': OrganismsStaffTabContainer;
       'organisms.staff-preview-section': OrganismsStaffPreviewSection;
       'organisms.rich-text-many-icons-link': OrganismsRichTextManyIconsLink;
@@ -308,8 +319,13 @@ declare module '@strapi/types' {
       'molecules.repeatable-text-card-icon': MoleculesRepeatableTextCardIcon;
       'molecules.multi-text-icon-card': MoleculesMultiTextIconCard;
       'molecules.landing-page-hero': MoleculesLandingPageHero;
+      'molecules.image-with-repeatable-text-and-link': MoleculesImageWithRepeatableTextAndLink;
       'molecules.icon-with-link': MoleculesIconWithLink;
       'molecules.expand-card': MoleculesExpandCard;
+      'atoms.rich-text': AtomsRichText;
+      'atoms.button': AtomsButton;
+      'atoms.basic-text': AtomsBasicText;
+      'atoms.basic-icon-with-text': AtomsBasicIconWithText;
     }
   }
 }

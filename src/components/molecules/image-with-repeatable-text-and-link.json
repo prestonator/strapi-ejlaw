@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_molecules_image_with_repeatable_text_and_links",
+  "info": {
+    "displayName": "Image with Repeatable Text and Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}
