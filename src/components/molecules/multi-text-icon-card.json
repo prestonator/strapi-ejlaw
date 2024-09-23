@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_molecules_multi_text_icon_cards",
+  "info": {
+    "displayName": "Multi Text Icon Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "services_card_content": {
+      "displayName": "Basic Icon with Text",
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.basic-icon-with-text"
+    }
+  }
+}

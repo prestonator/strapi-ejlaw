@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_atoms_basic_icon_with_texts",
+  "info": {
+    "displayName": "Basic Icon with Text"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}

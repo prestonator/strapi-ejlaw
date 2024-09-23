@@ -41,6 +41,15 @@
     },
     "section_one_button": {
       "type": "string"
+    },
+    "section_two_header": {
+      "type": "string"
+    },
+    "services_card": {
+      "displayName": "Multi Text Icon Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.multi-text-icon-card"
     }
   }
 }

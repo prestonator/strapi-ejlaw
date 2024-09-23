@@ -169,6 +169,20 @@ export interface MoleculesRepeatableTextCardIcon extends Schema.Component {
   };
 }
 
+export interface MoleculesMultiTextIconCard extends Schema.Component {
+  collectionName: 'components_molecules_multi_text_icon_cards';
+  info: {
+    displayName: 'Multi Text Icon Card';
+    description: '';
+  };
+  attributes: {
+    services_card_content: Attribute.Component<
+      'atoms.basic-icon-with-text',
+      true
+    >;
+  };
+}
+
 export interface MoleculesLandingPageHero extends Schema.Component {
   collectionName: 'components_molecules_landing_page_heroes';
   info: {
@@ -244,6 +258,18 @@ export interface AtomsBasicText extends Schema.Component {
   };
 }
 
+export interface AtomsBasicIconWithText extends Schema.Component {
+  collectionName: 'components_atoms_basic_icon_with_texts';
+  info: {
+    displayName: 'Basic Icon with Text';
+  };
+  attributes: {
+    icon: Attribute.String &
+      Attribute.CustomField<'plugin::strapi-react-icons.icon'>;
+    content: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -260,12 +286,14 @@ declare module '@strapi/types' {
       'molecules.rich-text-icon-button': MoleculesRichTextIconButton;
       'molecules.rich-text-button': MoleculesRichTextButton;
       'molecules.repeatable-text-card-icon': MoleculesRepeatableTextCardIcon;
+      'molecules.multi-text-icon-card': MoleculesMultiTextIconCard;
       'molecules.landing-page-hero': MoleculesLandingPageHero;
       'molecules.icon-with-link': MoleculesIconWithLink;
       'molecules.expand-card': MoleculesExpandCard;
       'atoms.rich-text': AtomsRichText;
       'atoms.button': AtomsButton;
       'atoms.basic-text': AtomsBasicText;
+      'atoms.basic-icon-with-text': AtomsBasicIconWithText;
     }
   }
 }
