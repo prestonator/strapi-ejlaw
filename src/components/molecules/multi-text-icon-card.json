@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "services_card_content": {
-      "displayName": "Basic Icon with Text",
-      "type": "component",
-      "repeatable": true,
-      "component": "atoms.basic-icon-with-text"
-    },
     "services_card_header": {
       "type": "component",
       "repeatable": false,
@@ -19,6 +13,12 @@
     },
     "services_card_description": {
       "type": "text"
+    },
+    "services_card_content": {
+      "displayName": "Basic Icon with Text",
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.basic-icon-with-text"
     }
   }
 }

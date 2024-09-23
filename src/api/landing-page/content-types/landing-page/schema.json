@@ -50,6 +50,9 @@
       "type": "component",
       "repeatable": true,
       "component": "molecules.multi-text-icon-card"
+    },
+    "section_three_header": {
+      "type": "string"
     }
   }
 }

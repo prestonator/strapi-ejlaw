@@ -176,12 +176,12 @@ export interface MoleculesMultiTextIconCard extends Schema.Component {
     description: '';
   };
   attributes: {
+    services_card_header: Attribute.Component<'atoms.basic-icon-with-text'>;
+    services_card_description: Attribute.Text;
     services_card_content: Attribute.Component<
       'atoms.basic-icon-with-text',
       true
     >;
-    services_card_header: Attribute.Component<'atoms.basic-icon-with-text'>;
-    services_card_description: Attribute.Text;
   };
 }
 

@@ -1153,6 +1153,7 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
     section_one_button: Attribute.String;
     section_two_header: Attribute.String;
     services_card: Attribute.Component<'molecules.multi-text-icon-card', true>;
+    section_three_header: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
