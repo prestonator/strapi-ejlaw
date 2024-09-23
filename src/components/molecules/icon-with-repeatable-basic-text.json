@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_molecules_icon_with_repeatable_basic_texts",
+  "info": {
+    "displayName": "Icon with Repeatable Basic Text",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-react-icons.icon"
+    }
+  }
+}
