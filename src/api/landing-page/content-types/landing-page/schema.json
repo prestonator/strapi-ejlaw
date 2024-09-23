@@ -58,6 +58,15 @@
       "type": "component",
       "repeatable": true,
       "component": "molecules.repeatable-text-card-icon"
+    },
+    "section_four_header": {
+      "type": "string"
+    },
+    "testimonial": {
+      "displayName": "Testimonial Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.testimonial-card"
     }
   }
 }

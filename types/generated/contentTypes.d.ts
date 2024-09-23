@@ -1158,6 +1158,8 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
       'molecules.repeatable-text-card-icon',
       true
     >;
+    section_four_header: Attribute.String;
+    testimonial: Attribute.Component<'molecules.testimonial-card', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
