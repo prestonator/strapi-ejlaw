@@ -55,10 +55,9 @@
       "type": "string"
     },
     "reasons_card": {
-      "displayName": "Icon with Repeatable Basic Text",
       "type": "component",
       "repeatable": true,
-      "component": "molecules.icon-with-repeatable-basic-text"
+      "component": "molecules.repeatable-text-card-icon"
     }
   }
 }
