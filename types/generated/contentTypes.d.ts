@@ -1165,6 +1165,7 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
       'molecules.image-with-repeatable-text-and-link',
       true
     >;
+    meta: Attribute.Component<'seo.shared-meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
